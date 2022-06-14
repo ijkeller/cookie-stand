@@ -1,18 +1,36 @@
 
-function hourlyCustomers(max, min, avg) {
-    let hourlyArray = [];
-    for (i = 0; i <= 12; i++) {
-        hourlyArray.push(Math.round((Math.round(Math.random() * (max - min) + min) * avg)))
+function hourlyCustomers(max, min, avg, open = 6, close = 19) {
+    let hourlyAvg = [];
+    let hoursOpen = close - open;
+    let hour = open;
+    let timeOfDay = 'am';
+    let rand = 0;
+    let total = 0;
+    for (i = 0; i <= hoursOpen; i++) {
+        rand = Math.round(Math.round(Math.random() * (max - min) + min) * avg);
+        let salesPerHour = `${hour} ${timeOfDay}: ${rand}`
+        hourlyAvg.push({salesPerHour});
+        hour++;
+        if (hour >= 13) {
+            hour -= 12;
+        }
+        if (hour >= 12) {
+            timeOfDay = 'pm';
+        } 
+        total += rand;
     }
-    return hourlyArray;
+    return [hourlyAvg, total];
 }
 
-function CookieShop(name, min, max, avg) {
-    this.name = name;
+function CookieShop(name, min, max, avg, open = 6, close = 19) {
+    this.name = `${name[0].toUpperCase()}${name.slice(1)}`;
+    this.open = open;
+    this.close = close;
     this.hourlyMin = min;
     this.hourlyMax = max;
     this.avgCookies = avg;
-    this.hourlyArray = hourlyCustomers(max, min, avg)
+    this.hourlyArray = hourlyCustomers(max, min, avg)[0]
+    this.total = hourlyCustomers(max, min, avg)[1]
 }
 
 const seatle = new CookieShop('seatle', 23, 65, 6.3);
@@ -21,9 +39,11 @@ const dubai = new CookieShop('dubai', 11, 38, 3.7);
 const paris = new CookieShop('paris', 20, 38, 2.3);
 const lima = new CookieShop('lima', 2, 16, 4.6);
 
-// console.log(dubai)
-// let name = `${seatle.name[0].toUpperCase()}${seatle.name.slice(1)}`
-// console.log(name)
+console.log(seatle)
+console.log(tokyo)
+console.log(dubai)
+console.log(paris)
+console.log(lima)
 // let headingE1 = document.createElement('h2');
 // headingE1.textContent = name
 // console.log(headingE1)
