@@ -77,7 +77,6 @@ function renderHeader() {
 renderHeader()
 
 function render(storeLocation) {
-    // add a table row to our table element
     let tableEl = document.getElementById('sales-data');
     let tableRowEl = document.createElement('tr');
     let storeEl = document.createElement('td');
@@ -93,7 +92,6 @@ function render(storeLocation) {
         let newDataCell = document.createElement('td');
         tableRowEl.appendChild(newDataCell);
         newDataCell.textContent = storeLocation.hourlyArray[i];
-        // console.log(`${storeLocation.name}.hourlyArray[${i}]=${storeLocation.hourlyArray[i]}`);
     }
 
     tableRowEl.appendChild(totalEl);
