@@ -21,10 +21,37 @@ const dubai = new CookieShop('dubai', 11, 38, 3.7);
 const paris = new CookieShop('paris', 20, 38, 2.3);
 const lima = new CookieShop('lima', 2, 16, 4.6);
 
-const seatleArray = seatle.hourlyArray
-
-// console.log(seatle)
-// console.log(tokyo)
 // console.log(dubai)
-// console.log(paris)
-// console.log(lima)
+// let name = `${seatle.name[0].toUpperCase()}${seatle.name.slice(1)}`
+// console.log(name)
+// let headingE1 = document.createElement('h2');
+// headingE1.textContent = name
+// console.log(headingE1)
+
+// document.getElementById();
+// resultEl.appendChild(headingEl);
+
+let textElement = document.getElementById('banana'); // returns a element if found
+console.log(textElement);
+
+// property or method?
+textElement.textContent = 'I am a p tag'; // puts this wherever text should go on an "element" object.
+
+// create new elements
+let headingEl = document.createElement('h2');
+
+let sectionEl = document.getElementById('results');
+headingEl.textContent = 'Results go here!!';
+
+// adding a new element to our existing section.
+sectionEl.appendChild(headingEl);
+
+function render() {
+  let newEl = document.createElement();
+
+  let resultEl = document.getElementById();
+  newEl.textContent = '';
+
+  // adding a new element to our existing section.
+  resultEl.appendChild(headingEl);
+}
