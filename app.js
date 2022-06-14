@@ -3,13 +3,20 @@ function hourlyCustomers(max, min, avg, open = 6, close = 19) {
     let hourlyAvg = [];
     let hoursOpen = close - open;
     let hour = open;
+    let timeOfDay = 'am';
     let rand = 0;
     let total = 0;
     for (i = 0; i <= hoursOpen; i++) {
         rand = Math.round(Math.round(Math.random() * (max - min) + min) * avg);
-        let salesPerHour = `${hour}: ${rand}`
+        let salesPerHour = `${hour} ${timeOfDay}: ${rand}`
         hourlyAvg.push({salesPerHour});
         hour++;
+        if (hour >= 13) {
+            hour -= 12;
+        }
+        if (hour >= 12) {
+            timeOfDay = 'pm';
+        } 
         total += rand;
     }
     return [hourlyAvg, total];
