@@ -1,3 +1,4 @@
+'use strict';
 
 let dailyTotalArray = [];
 let storeLocationArray = [];
