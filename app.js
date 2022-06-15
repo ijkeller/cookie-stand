@@ -1,5 +1,6 @@
 
 let dailyTotalArray = [];
+let storeLocationArray = [];
 
 function hourlyCustomers(max, min, avg, open = 6, close = 19) {
     let hourlyAvg = [];
@@ -35,20 +36,17 @@ function CookieShop(name, min, max, avg, open = 6, close = 19) {
     this.avgCookies = avg;
     this.hourlyArray = hourlyCustomers(max, min, avg)[0]
     this.total = hourlyCustomers(max, min, avg)[1]
+    storeLocationArray.push(this)
 }
 
-const seatle = new CookieShop('seatle', 23, 65, 6.3);
+const seattle = new CookieShop('seattle', 23, 65, 6.3);
 const tokyo = new CookieShop('tokyo', 3, 24, 1.2);
 const dubai = new CookieShop('dubai', 11, 38, 3.7);
 const paris = new CookieShop('paris', 20, 38, 2.3);
 const lima = new CookieShop('lima', 2, 16, 4.6);
 
-console.log(seatle)
-console.log(tokyo)
-console.log(dubai)
-console.log(paris)
-console.log(lima)
 console.log(dailyTotalArray)
+console.log(storeLocationArray)
 
 function renderHeader() {
     let tableEl = document.getElementById('sales-data');
@@ -96,24 +94,24 @@ function render(storeLocation) {
 
     tableRowEl.appendChild(totalEl);
     totalEl.textContent = storeLocation.total
-
 }
 
+function renderStoreLocationArray() {
+    for (let i = 0; i < storeLocationArray.length; i++) {
+        console.log(storeLocationArray[i])
+        render(storeLocationArray[i]);
+    }
+}
 
-
-render(seatle)
-render(tokyo)
-render(dubai)
-render(paris)
-render(lima)
+renderStoreLocationArray()
 
 function renderFooter() {
     let tableEl = document.getElementById('sales-data');
     let tableRowEl = document.createElement('tr');
     let startEl = document.createElement('td');
     let endEl = document.createElement('td');
-    startEl.classList.add('total');
-    endEl.classList.add('total')
+    startEl.classList.add('total', 'total-tital');
+    endEl.classList.add('total', 'total-total')
 
     tableEl.appendChild(tableRowEl);
     tableRowEl.appendChild(startEl);
