@@ -1,4 +1,7 @@
 
+let dailyTotalArray = [];
+let storeLocationArray = [];
+
 function hourlyCustomers(max, min, avg, open = 6, close = 19) {
     let hourlyAvg = [];
     let hoursOpen = close - open;
@@ -9,18 +12,19 @@ function hourlyCustomers(max, min, avg, open = 6, close = 19) {
     for (i = 0; i <= hoursOpen; i++) {
         rand = Math.round(Math.round(Math.random() * (max - min) + min) * avg);
         let salesPerHour = `${hour} ${timeOfDay}: ${rand}`
-        hourlyAvg.push({salesPerHour});
+        hourlyAvg.push(rand);
         hour++;
-        if (hour >= 13) {
-            hour -= 12;
+        if (dailyTotalArray[i] == undefined) {
+            dailyTotalArray.push(rand);
+        } else {
+            dailyTotalArray[i] += rand;
         }
-        if (hour >= 12) {
-            timeOfDay = 'pm';
-        } 
         total += rand;
     }
     return [hourlyAvg, total];
 }
+
+let hoursOpenArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
 
 function CookieShop(name, min, max, avg, open = 6, close = 19) {
     this.name = `${name[0].toUpperCase()}${name.slice(1)}`;
@@ -31,47 +35,100 @@ function CookieShop(name, min, max, avg, open = 6, close = 19) {
     this.avgCookies = avg;
     this.hourlyArray = hourlyCustomers(max, min, avg)[0]
     this.total = hourlyCustomers(max, min, avg)[1]
+    storeLocationArray.push(this)
 }
 
-const seatle = new CookieShop('seatle', 23, 65, 6.3);
+const seattle = new CookieShop('seattle', 23, 65, 6.3);
 const tokyo = new CookieShop('tokyo', 3, 24, 1.2);
 const dubai = new CookieShop('dubai', 11, 38, 3.7);
 const paris = new CookieShop('paris', 20, 38, 2.3);
 const lima = new CookieShop('lima', 2, 16, 4.6);
 
-console.log(seatle)
-console.log(tokyo)
-console.log(dubai)
-console.log(paris)
-console.log(lima)
-// let headingE1 = document.createElement('h2');
-// headingE1.textContent = name
-// console.log(headingE1)
+console.log(dailyTotalArray)
+console.log(storeLocationArray)
 
-// document.getElementById();
-// resultEl.appendChild(headingEl);
+function renderHeader() {
+    let tableEl = document.getElementById('sales-data');
+    let tableRowEl = document.createElement('tr');
+    let startEl = document.createElement('td');
+    let endEl = document.createElement('td');
+    startEl.classList.add('empty');
+    endEl.classList.add('total')
 
-let textElement = document.getElementById('banana'); // returns a element if found
-console.log(textElement);
+    tableEl.appendChild(tableRowEl);
+    tableRowEl.appendChild(startEl);
+    startEl.textContent = ''
 
-// property or method?
-textElement.textContent = 'I am a p tag'; // puts this wherever text should go on an "element" object.
+    for (i=0; i<hoursOpenArray.length; i++) {
+        let newDataCell = document.createElement('td');
+        newDataCell.classList.add('heading')
+        tableRowEl.appendChild(newDataCell);
+        newDataCell.textContent = hoursOpenArray[i];
+    }
 
-// create new elements
-let headingEl = document.createElement('h2');
-
-let sectionEl = document.getElementById('results');
-headingEl.textContent = 'Results go here!!';
-
-// adding a new element to our existing section.
-sectionEl.appendChild(headingEl);
-
-function render() {
-  let newEl = document.createElement();
-
-  let resultEl = document.getElementById();
-  newEl.textContent = '';
-
-  // adding a new element to our existing section.
-  resultEl.appendChild(headingEl);
+    tableEl.appendChild(tableRowEl);
+    tableRowEl.appendChild(endEl);
+    endEl.textContent = 'Total:'
 }
+
+renderHeader()
+
+function render(storeLocation) {
+    let tableEl = document.getElementById('sales-data');
+    let tableRowEl = document.createElement('tr');
+    let storeEl = document.createElement('td');
+    storeEl.classList.add('store-location')
+    let totalEl = document.createElement('td');
+    totalEl.classList.add('totals')
+    
+    tableEl.appendChild(tableRowEl);
+    tableRowEl.appendChild(storeEl);
+    storeEl.textContent = storeLocation.name
+    
+    for (i=0; i < storeLocation.hourlyArray.length; i++) {
+        let newDataCell = document.createElement('td');
+        tableRowEl.appendChild(newDataCell);
+        newDataCell.textContent = storeLocation.hourlyArray[i];
+    }
+
+    tableRowEl.appendChild(totalEl);
+    totalEl.textContent = storeLocation.total
+}
+
+function renderStoreLocationArray() {
+    for (let i = 0; i < storeLocationArray.length; i++) {
+        console.log(storeLocationArray[i])
+        render(storeLocationArray[i]);
+    }
+}
+
+renderStoreLocationArray()
+
+function renderFooter() {
+    let tableEl = document.getElementById('sales-data');
+    let tableRowEl = document.createElement('tr');
+    let startEl = document.createElement('td');
+    let endEl = document.createElement('td');
+    startEl.classList.add('total', 'total-title');
+    endEl.classList.add('total', 'total-total')
+
+    tableEl.appendChild(tableRowEl);
+    tableRowEl.appendChild(startEl);
+    startEl.textContent = 'Total:'
+
+    let totalTotal = 0;
+
+    for (i=0; i<hoursOpenArray.length; i++) {
+        let newDataCell = document.createElement('td');
+        newDataCell.classList.add('total')
+        tableRowEl.appendChild(newDataCell);
+        newDataCell.textContent = dailyTotalArray[i];
+        totalTotal += dailyTotalArray[i]
+    }
+
+    tableEl.appendChild(tableRowEl);
+    tableRowEl.appendChild(endEl);
+    endEl.textContent = totalTotal
+}
+
+renderFooter()

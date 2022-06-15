@@ -1,0 +1,33 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    border: 3px solid red;
+    width: calc(100% - 20px);
+    margin: 10px;
+    overflow-x: scroll;
+}
+
+table> tr:nth-child(2n) {
+    background-color: hsl(0, 0%, 85%);
+}
+
+td, th, tr {
+    border: 3px solid rgba(0, 0, 0, 1);
+    padding: .5rem;
+    text-align: center;
+}
+
+.store-location, 
+.total-title {
+    text-align: left;
+}
+
+.store-location, .totals, .heading, .total {
+    font-weight: bold;
+}
+
+.empty {
+    border: none;
+}
