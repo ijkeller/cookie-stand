@@ -10,7 +10,7 @@ function hourlyCustomers(max, min, avg, open = 6, close = 19) {
     let timeOfDay = 'am';
     let rand = 0;
     let total = 0;
-    for (i = 0; i <= hoursOpen; i++) {
+    for ( let i = 0; i <= hoursOpen; i++) {
         rand = Math.round(Math.round(Math.random() * (max - min) + min) * avg);
         let salesPerHour = `${hour} ${timeOfDay}: ${rand}`
         hourlyAvg.push(rand);
@@ -60,7 +60,7 @@ function renderHeader() {
     tableRowEl.appendChild(startEl);
     startEl.textContent = ''
 
-    for (i=0; i<hoursOpenArray.length; i++) {
+    for ( let i=0; i<hoursOpenArray.length; i++) {
         let newDataCell = document.createElement('td');
         newDataCell.classList.add('heading')
         tableRowEl.appendChild(newDataCell);
@@ -86,7 +86,7 @@ function render(storeLocation) {
     tableRowEl.appendChild(storeEl);
     storeEl.textContent = storeLocation.name
     
-    for (i=0; i < storeLocation.hourlyArray.length; i++) {
+    for ( let i=0; i < storeLocation.hourlyArray.length; i++) {
         let newDataCell = document.createElement('td');
         tableRowEl.appendChild(newDataCell);
         newDataCell.textContent = storeLocation.hourlyArray[i];
@@ -119,7 +119,7 @@ function renderFooter() {
 
     let totalTotal = 0;
 
-    for (i=0; i<hoursOpenArray.length; i++) {
+    for (let i=0; i<hoursOpenArray.length; i++) {
         let newDataCell = document.createElement('td');
         newDataCell.classList.add('total')
         tableRowEl.appendChild(newDataCell);
