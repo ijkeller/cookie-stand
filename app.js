@@ -24,8 +24,7 @@ function hourlyCustomers(max, min, avg, open = 6, close = 19) {
     return [hourlyAvg, total];
 }
 
-let hoursOpenArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', 
-'4pm', '5pm', '6pm', '7pm']
+let hoursOpenArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
 
 function CookieShop(name, min, max, avg, open = 6, close = 19) {
     this.name = `${name[0].toUpperCase()}${name.slice(1)}`;
@@ -110,7 +109,7 @@ function renderFooter() {
     let tableRowEl = document.createElement('tr');
     let startEl = document.createElement('td');
     let endEl = document.createElement('td');
-    startEl.classList.add('total', 'total-tital');
+    startEl.classList.add('total', 'total-title');
     endEl.classList.add('total', 'total-total')
 
     tableEl.appendChild(tableRowEl);
