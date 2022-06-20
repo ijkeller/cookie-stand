@@ -1,22 +1,73 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poiret One', cursive;
+    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Economica', sans-serif;
+    box-sizing: border-box;
+    --bg-color-1: #353535;
+    --highlight-color-1: #ff5907;
+    --highlight-color-2: #ff8537;
+    --highlight-color-3: #fe990e;
+    --highlight-color-4: hsl(0, 0%, 43%);
+    --highlight-color-5: hsl(0, 0%, 63%);
+    list-style: none;
+}
+
+body {
+    background-color: var(--bg-color-1);
+    color: var(--highlight-color-4);
+    margin: 20px 10%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+nav {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    top: 0;
+    overflow: hidden;
+    width: 100vw;
+}
+
+nav a {
+    display: inline-block;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+    justify-self: center;
+}
+
+nav a:hover {
+    color: #ff5907;
+}
+
+main {
+    margin-top: 45px;
 }
 
 table {
-    border: 3px solid red;
+    border: 3px solid var(--highlight-color-1);
     width: calc(100% - 20px);
     margin: 10px;
     overflow-x: scroll;
 }
 
+h1 {
+    color: var(--highlight-color-3);
+    font: 400;
+    font-family: nixie one;
+    justify-self: left;
+}
+
 table> tr:nth-child(2n) {
-    background-color: hsl(0, 0%, 85%);
+    /* background-color: hsl(0, 0%, 85%); */
 }
 
 td, th, tr {
-    border: 3px solid rgba(0, 0, 0, 1);
+    border: 3px solid var(--highlight-color-4);
     padding: .5rem;
     text-align: center;
+    color: var(--highlight-color-5);
 }
 
 .store-location, 
@@ -26,8 +77,38 @@ td, th, tr {
 
 .store-location, .totals, .heading, .total {
     font-weight: bold;
+    color: var(--highlight-color-2);    
+    font-family: 'Poiret One', cursive;
 }
 
 .empty {
     border: none;
+}
+
+form {
+    background-color: var(--bg-color-1);
+    border-color: var(--highlight-color-4);
+    color: var(--highlight-color-5);
+}
+
+input[type="text"], input[type="number"], textarea {
+
+    background-color : var(--bg-color-1); 
+    color: var(--highlight-color-5);
+  
+  }
+
+:any-link {
+    color: var(--highlight-color-3);
+    font-weight: bold;
+}
+
+button {
+    background-color: var(--bg-color-1);
+    border: 3px solid var(--highlight-color-2);
+    border-radius: 15%;
+    color: var(--highlight-color-2);
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 5px;
 }
