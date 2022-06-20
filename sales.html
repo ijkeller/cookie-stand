@@ -10,20 +10,20 @@
 </head>
 
 <body>
-        <nav>
-            <section>
-               <img src="./assets/salmon.png" alt="salmon" srcset="" width="197" height="62">
-               <h1>Sales Page</h1>
-            </section>
-            <section>
-                <a href="/index.html">Home Page</a>
-                <a href="/store.html">Store Page</a>
+    <nav>
+        <section>
+            <img src="./assets/salmon.png" alt="salmon" srcset="" width="197" height="62">
+            <h1>Sales Page</h1>
+        </section>
+        <section>
+            <a href="/index.html">Home Page</a>
+            <a href="/store.html">Store Page</a>
             <a href="/order-processing.html">Order Processing Page</a>
-            </section>
-            
-        </nav>
-        
-        
+        </section>
+
+    </nav>
+
+
     <main>
         <table id="sales-data">
 
@@ -31,30 +31,25 @@
         <form name="theForm" id="newStoreForm">
             <fieldset>
                 <legend>New Store</legend>
-                <div>
-                    <label for="store">Store Location</label>
+                <fieldset>
+                    <legend>Location</legend>
+                    <label class="label" for="store">Store Location</label>
                     <input type="text" name="store" id="store" placeholder="City Name" required>
-                    <label for="avg">Average Purchase</label>
+                    <label class="label"  for="avg">Average Purchase</label>
                     <input type="number" name="avg" step="0.01" id="avg" required>
-                </div>
-                <div>
-                </div>
+                </fieldset>
                 <fieldset>
                     <legend>Hourly Customers</legend>
-                    <div>
-                        <label for="min">Min</label>
-                        <input type="number" name="min" id="min" required>
-                        <label for="">Max</label><input type="number" name="max" id="max" required>
-                    </div>
+                    <label class="label"  for="min">Min</label>
+                    <input type="number" name="min" id="min" required>
+                    <label class="label"  for="">Max</label><input type="number" name="max" id="max" required>
                 </fieldset>
                 <fieldset>
                     <legend>Optional</legend>
-                    <div>
-                        <label for="">Opening Time</label>
-                        <input type="number" name="open" id="open" min="0" max="12" value="6"> am,
-                        <label for="">Closing Time</label>
-                        <input type="number" name="close" id="close" min="0" max="12" value="7"> pm
-                    </div>
+                        <label class="label"  for="">Opening Time</label>
+                        <input type="number" name="open" id="open" min="0" max="12" value="6"> am
+                        <label class="label"  for="">Closing Time</label>
+                        <input class="input" type="number" name="close" id="close" min="0" max="12" value="7"> pm
                 </fieldset>
                 <button type="submit" id='input_submit'>Submit</button>
             </fieldset>

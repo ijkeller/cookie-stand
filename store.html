@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,21 +8,81 @@
     <link rel="stylesheet" href="style.css">
     <title>Salmon Cookies Store</title>
 </head>
+
 <body>
-        <nav>
-            <section>
-               <img src="./assets/salmon.png" alt="salmon" srcset="" width="197" height="62">
-            <h1>Store</h1> 
-            </section>
-            <section>
-                <a href="/index.html">Home Page</a>
+    <nav>
+        <section>
+            <img src="./assets/salmon.png" alt="salmon" srcset="" width="197" height="62">
+            <h1>Store</h1>
+        </section>
+        <section>
+            <a href="/index.html">Home Page</a>
             <a href="/sales.html">Sales Page</a>
             <a href="/order-processing.html">Order Processing Page</a>
-            </section>
-        </nav>
+        </section>
+    </nav>
     <main>
-
+        <form action="">
+            <fieldset>
+            <legend>Order Form</legend>
+            <fieldset>
+                <legend>Food Items</legend>
+                <section>
+                <label class="label" for="avg">Salmon Cookies</label>
+                <input class="input"  type="number" name="cookies" id="cookies">
+                </section>
+                <section>
+                    <label class="label" for="">Salmon Butter Frosting</label><input class="input"  type="number" name="frosting" id="frosting">
+                </section>
+            </fieldset>
+            <fieldset>
+                <legend>Merchandise</legend>
+                <section>
+                    <label class="label" for="avg">T-shirt</label>
+                    <input class="input"  type="number" name="t-shirt" id="t-shirt">
+                    <label for="">Size</label><select name="t-size" id="t-size" >
+                        <option value="x-sm">extra small</option>
+                        <option value="sm">small</option>
+                        <option value="md">medium</option>
+                        <option value="lg">large</option>
+                        <option value="x-lg">extra large</option>
+                        <option value="xx-lg">double xl</option>
+                    </select>
+                </section>
+                <section>
+                    <label class="label" for="avg">Hoodie</label>
+                    <input class="input"  type="number" name="hoodie" id="hoodie">
+                    <label for="">Size</label><select name="h-size" id="h-size" >
+                        <option value="x-sm">extra small</option>
+                        <option value="sm">small</option>
+                        <option value="md">medium</option>
+                        <option value="lg">large</option>
+                        <option value="x-lg">extra large</option>
+                        <option value="xx-lg">double xl</option>
+                    </select>
+                </section>
+                <section>
+                    <label class="label" for="avg">Cookie Cutter</label>
+                    <input class="input"  type="number" name="cutter" id="cutter">
+                </section>
+            </fieldset>
+            <fieldset>
+                <legend>Destination</legend>
+                <fieldset>
+                    <label class="label" for="">Address</label><input class="input"  type="text" name="address" id="address" required>
+                    <label class="label" for="">Apt/PO Box Number</label><input class="input"  type="text" name="apt" id="apt">
+                </fieldset>
+                <fieldset>
+                    <label class="label" for="">State/Provence</label><input class="input"  type="text" name="state" id="state" required>
+                    <label class="label" for="">Country</label><input class="input"  type="text" name="country" id="country" required>
+                    <label class="label" for="">Zip Code</label><input class="input"  type="number" name="zip" id="zip" required>
+                </fieldset>
+            </fieldset>
+            <button type="submit" id='input class="input" _submit'>Submit</button>
+        </fieldset>
+        </form>
     </main>
-    
+
 </body>
+
 </html>
