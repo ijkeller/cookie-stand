@@ -16,7 +16,7 @@ body {
     background-color: var(--bg-color-1);
     color: var(--highlight-color-4);
     width: 90vw;
-    margin: 20px 10%;
+    margin: 20px 10% 0 10%;
     display: grid;
     grid-template-rows: 10% 90%;
 }
@@ -101,9 +101,35 @@ form {
     background-color: var(--bg-color-1);
     border-color: var(--highlight-color-4);
     color: var(--highlight-color-5);
+    margin: 20px 10%;
+    display: grid;
+    grid-template-rows: auto;
+    justify-content: space-evenly;
 }
 
-input[type="text"], input[type="number"], textarea {
+fieldset {
+    display: grid;
+    /* justify-content: space-evenly; */
+    gap: 5px;
+}
+
+.label {
+    justify-self: left;
+}
+
+.input {
+    justify-self: right;
+}
+
+form > fieldset > section {
+    margin: 5px;
+}
+
+form > fieldset > section > * {
+    margin: 5px;
+}
+
+input[type="text"], input[type="number"], textarea, select {
 
     background-color : var(--highlight-color-5); 
     color: var(--bg-color-1);
@@ -125,4 +151,7 @@ button {
     font-weight: bold;
     font-size: 1.5rem;
     margin: 5px;
+    height: 3rem;
+    bottom: 5px;
+    justify-self: end;
 }
