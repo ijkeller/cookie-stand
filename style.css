@@ -47,6 +47,7 @@ main {
 
 table {
     border: 3px solid var(--highlight-color-1);
+    background-color: var(--highlight-color-5);
     width: calc(100% - 20px);
     margin: 10px;
     overflow-x: scroll;
@@ -64,10 +65,11 @@ table> tr:nth-child(2n) {
 }
 
 td, th, tr {
-    border: 3px solid var(--highlight-color-4);
+    border: 3px solid var(--bg-color-1);
     padding: .5rem;
     text-align: center;
-    color: var(--highlight-color-5);
+    font-weight: bold;
+    color: var(--bg-color-1);
 }
 
 .store-location, 
@@ -76,9 +78,11 @@ td, th, tr {
 }
 
 .store-location, .totals, .heading, .total {
-    font-weight: bold;
-    color: var(--highlight-color-2);    
-    font-family: 'Poiret One', cursive;
+    font-weight: bolder;
+    color: var(--bg-color-1);   
+    text-shadow: 1px 1px var(--highlight-color-1); 
+    font-family: nixie one;
+    font-size: 1.2rem;
 }
 
 .empty {
