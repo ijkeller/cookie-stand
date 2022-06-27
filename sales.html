@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <title>Sales</title>
 </head>
-
 <body>
     <nav>
         <section>
@@ -22,8 +21,6 @@
         </section>
 
     </nav>
-
-
     <main>
         <table id="sales-data">
 
@@ -47,9 +44,9 @@
                 <fieldset>
                     <legend>Optional</legend>
                         <label class="label"  for="">Opening Time</label>
-                        <input type="number" name="open" id="open" min="0" max="12" value="6"> am
+                        <input type="text" name="open" id="open" min="0" max="12" value="6am">
                         <label class="label"  for="">Closing Time</label>
-                        <input class="input" type="number" name="close" id="close" min="0" max="12" value="7"> pm
+                        <input type="text" class="input" name="close" id="close" min="0" max="12" value="7pm">
                 </fieldset>
                 <button type="submit" id='input_submit'>Submit</button>
             </fieldset>
@@ -57,5 +54,4 @@
     </main>
     <script src="app.js"></script>
 </body>
-
 </html>

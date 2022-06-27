@@ -121,12 +121,9 @@ fieldset {
     justify-self: right;
 }
 
-form > fieldset > section {
-    margin: 5px;
-}
-
-form > fieldset > section > * {
-    margin: 5px;
+form > fieldset {
+    display: grid;
+    grid-template-columns: 33% 33% 34%;
 }
 
 input[type="text"], input[type="number"], textarea, select {
@@ -153,5 +150,6 @@ button {
     margin: 5px;
     height: 3rem;
     bottom: 5px;
-    justify-self: end;
+    grid-column: 2/3;
+    justify-self: center;
 }
